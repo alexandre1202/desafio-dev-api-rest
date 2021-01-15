@@ -15,10 +15,9 @@ Before you begin, ensure you have met the following requirements:
 * [Git installation](https://gist.github.com/derhuerst/1b15ff4652a867391f03#file-mac-md)
 
 ### This web application based on:
-![Spring](./src/main/resources/images/springboot-configurations.jpeg)
-![Metadata](./src/main/resources/images/project-metadata.jpeg)
-![Dependencies](./src/main/resources/images/dependencies.jpeg)
-![Dependencies](./src/main/resources/images/dependencies-2.jpeg)
+![Spring](./src/main/resources/assets/spring.jpeg)
+![Metadata](./src/main/resources/assets/metadata.jpeg)
+![Dependencies](./src/main/resources/assets/dependencies.jpeg)
 
 ## Installing <project_name>
 
@@ -27,11 +26,13 @@ To install <project_name>, follow these steps:
 Linux and macOS:
 ```
 <install_command>
+mvn spring-boot:run
 ```
 
 Windows:
 ```
 <install_command>
+mvn spring-boot:run
 ```
 ## Using <project_name>
 
