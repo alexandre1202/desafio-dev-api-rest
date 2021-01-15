@@ -1,4 +1,3 @@
-
 # Dock Bank Code Challenge for Bank Account
 REST Full Web Service Application Code Challenge with the following features:
 * creating account balance
@@ -9,53 +8,31 @@ REST Full Web Service Application Code Challenge with the following features:
 * bank statement
 
 ## Prerequisites
-
 Before you begin, ensure you have met the following requirements:
 * [Java 8 download link](https://www.oracle.com/webapps/redirect/signon?nexturl=https://download.oracle.com/otn/java/jdk/8u241-b07/1f5b5a70bf22433b84d0e960903adac8/jdk-8u241-macosx-x64.dmg)
 * [Git installation](https://gist.github.com/derhuerst/1b15ff4652a867391f03#file-mac-md)
+* [Maven installation](https://maven.apache.org/install.html)
 
 ### This web application based on:
 ![Spring](./src/main/resources/assets/spring.jpeg)
 ![Metadata](./src/main/resources/assets/metadata.jpeg)
 ![Dependencies](./src/main/resources/assets/dependencies.jpeg)
 
-## Installing <project_name>
+## Entity Relationship Diagram
+![ERD](./src/main/resources/assets/erd.jpeg)
 
-To install <project_name>, follow these steps:
+## Running
+To use Bank Account Web Application, follow these steps:
 
-Linux and macOS:
 ```
-<install_command>
 mvn spring-boot:run
 ```
 
-Windows:
-```
-<install_command>
-mvn spring-boot:run
-```
-## Using <project_name>
+## Entity Relationship Diagram
+![ERD](./src/main/resources/assets/erd.jpeg)
 
-To use <project_name>, follow these steps:
-
-```
-<usage_example>
-mvn spring-boot:run
-```
-
-Add run commands and examples you think users will find useful. Provide an options reference for bonus points!
-
-## Contributing to <project_name>
-<!--- If your README is long or you have some specific process or steps you want contributors to follow, consider creating a separate CONTRIBUTING.md file--->
-To contribute to <project_name>, follow these steps:
-
-1. Fork this repository.
-2. Create a branch: `git checkout -b <branch_name>`.
-3. Make your changes and commit them: `git commit -m '<commit_message>'`
-4. Push to the original branch: `git push origin <project_name>/<location>`
-5. Create the pull request.
-
-Alternatively see the GitHub documentation on [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+## More references
+* ![User story 01](./src/main/resources/docs/us01.pdf)
 
 ## Contact
 
