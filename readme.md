@@ -1,79 +1,76 @@
 
-### Desafio
-Olá, queremos convidá-lo(a) a participar do nosso desafio de seleção.  Pronto(a) para participar? Seu trabalho será visto pelo nosso time e você receberá um feedback ao final sobre o que achamos do seu trabalho. Não é legal?
+# Dock Bank Code Challenge for Bank Account
+REST Full Web Service Application Code Challenge with the following features:
+* creating account balance
+* deposit transaction
+* check account balance
+* withdraw
+* disable account
+* bank statement
 
-### Sobre a oportunidade 
-A vaga é para Desenvolvedor(a), temos vagas com diversos níveis de senioridade e para cada um deles utilizaremos critérios específicos considerando este aspecto, combinado? 
-Se você for aprovad(a) nesta etapa, será convidado para uma entrevista final.
+## Prerequisites
 
-### Desafio Técnico
-  Nós trabalhamos com meios de pagamento e nada melhor do que um bom sistema para gestão de contas:
-  
-  - Pré-requisitos:
-    ```
-    * Desenvolver os recursos em API Rest que realizam operações bancárias com a entidade conta a seguir:
-    ```
-    | Contas | Tipo |
-    |-|-|
-    | idConta | Numérico |
-    | idPessoa | Numérico |
-    | saldo | Monetário |
-    | limiteSaqueDiario | Monetário |
-    | flagAtivo | Condicional |
-    | tipoConta | Numérido |
-    | dataCriacao | Data |
+Before you begin, ensure you have met the following requirements:
+* [Java 8 download link](https://www.oracle.com/webapps/redirect/signon?nexturl=https://download.oracle.com/otn/java/jdk/8u241-b07/1f5b5a70bf22433b84d0e960903adac8/jdk-8u241-macosx-x64.dmg)
+* [Git installation](https://gist.github.com/derhuerst/1b15ff4652a867391f03#file-mac-md)
 
-    ```
-    * Tabela de transações realizadas na conta
-    ```
-    | Transacoes | Tipo |
-    |-|-|
-    | idTransacao | Numérico |
-    | idConta | Numérico |
-    | valor | Monetário |
-    | dataTransacao | Data |
+### This web application based on:
+![Spring](./src/main/resources/images/springboot-configurations.jpeg)
+![Metadata](./src/main/resources/images/project-metadata.jpeg)
+![Dependencies](./src/main/resources/images/dependencies.jpeg)
+![Dependencies](./src/main/resources/images/dependencies-2.jpeg)
 
-    ```
-    * P.S.: Não é necessário realizar operações com a tabela pessoa, mas é necessária a criação da tabela para mapeamento da relação com a conta e enviar script de criação de pelo menos uma pessoa.
-    ```
+## Installing <project_name>
 
-    | Pessoas | Tipo |
-    |-|-|
-    | idPessoa | Numérico |
-    | nome | Texto |
-    | cpf | Texto |
-    | dataNascimento | Data |    
+To install <project_name>, follow these steps:
 
-  - O que esperamos como escopo mínimo:
-    ```
-    * Implementar path que realiza a criação de uma conta;
-    * Implementar path que realiza operação de depósito em uma conta;
-    * Implementar path que realiza operação de consulta de saldo em determinada conta;
-    * Implementar path que realiza operação de saque em uma conta;
-    * Implementar path que realiza o bloqueio de uma conta;
-    * Implementar path que recupera o extrato de transações de uma conta;
-    ```
-  - O que será diferencial:
-    ```
-    * Implementar extrato por período;
-    * Elaborar manual de execução;
-    * Elaborar documentação;
-    * Elaborar testes.
-    ```
-    
-  - O que vamos avaliar:
-    ```
-    * Seu código; 
-    * Script de banco;
-    * Organização;
-    * Boas práticas;
-    * Diferenciais;    
-    ```
+Linux and macOS:
+```
+<install_command>
+```
 
+Windows:
+```
+<install_command>
+```
+## Using <project_name>
 
-### Instruções
-      1. Faça o fork do desafio;
-      2. Crie um repositório privado no seu github para o projeto e adicione como colaborador o usuário wesleyjoliveira;
-      3. Desenvolva. Você terá 7 (sete) dias a partir da data do envio do desafio; 
-      4. Após concluir seu trabalho faça um push; 
-      5. Envie um e-mail à pessoa que está mantendo o contato com você durante o processo notificando a finalização do desafio para validação.
+To use <project_name>, follow these steps:
+
+```
+<usage_example>
+mvn spring-boot:run
+```
+
+Add run commands and examples you think users will find useful. Provide an options reference for bonus points!
+
+## Contributing to <project_name>
+<!--- If your README is long or you have some specific process or steps you want contributors to follow, consider creating a separate CONTRIBUTING.md file--->
+To contribute to <project_name>, follow these steps:
+
+1. Fork this repository.
+2. Create a branch: `git checkout -b <branch_name>`.
+3. Make your changes and commit them: `git commit -m '<commit_message>'`
+4. Push to the original branch: `git push origin <project_name>/<location>`
+5. Create the pull request.
+
+Alternatively see the GitHub documentation on [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+
+## Contributors
+
+Thanks to the following people who have contributed to this project:
+
+* [@scottydocs](https://github.com/scottydocs) 📖
+* [@cainwatson](https://github.com/cainwatson) 🐛
+* [@calchuchesta](https://github.com/calchuchesta) 🐛
+
+You might want to consider using something like the [All Contributors](https://github.com/all-contributors/all-contributors) specification and its [emoji key](https://allcontributors.org/docs/en/emoji-key).
+
+## Contact
+
+If you want to contact me you can reach me at <your_email@address.com>.
+
+## License
+<!--- If you're not sure which open license to use see https://choosealicense.com/--->
+
+This project uses the following license: [<license_name>](<link>).
