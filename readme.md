@@ -26,9 +26,9 @@ mvn spring-boot:run
 ```
 
 ## Swagger documentation
-Swagger documentation and database available when this application is running with the following link:
+Swagger documentation and database are available when this application is running with the following link:
 * [Swagger](http://localhost:8080/swagger-ui.html)
-* [H2 Database](http://localhost:8080/h2-ui/)
+* [H2 Database](http://localhost:8080/h2-ui/) - user : sa and without password
 
 ## Entity Relationship Diagram
 ![ERD](./src/main/resources/assets/erd.jpeg)
