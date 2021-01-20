@@ -34,6 +34,11 @@ Swagger documentation and database are available when this application is runnin
 ## Entity Relationship Diagram
 ![ERD](./src/main/resources/assets/erd.jpeg)
 
+## H2 Database Customer insert command
+```
+insert into customer (customer_id, customer_birth, customer_cpf, customer_name) values (1, PARSEDATETIME(sysdate, 'yyyy-MM-dd'), '11111111111', 'Nome do cliente');
+```
+
 ## Contact
 
 If you want to contact me you can reach me at <alexandre1202@gmail.com>.
