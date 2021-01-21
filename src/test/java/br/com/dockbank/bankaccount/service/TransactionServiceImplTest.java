@@ -1,13 +1,19 @@
 package br.com.dockbank.bankaccount.service;
 
+import static br.com.dockbank.bankaccount.mother.AccountMother.*;
 import static br.com.dockbank.bankaccount.mother.TransactionMother.getTransactionBank;
 import static br.com.dockbank.bankaccount.mother.TransactionMother.getTransactionRequest;
 import static br.com.dockbank.bankaccount.mother.TransactionMother.getTransactionResponse;
 import static java.math.BigDecimal.valueOf;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
+import br.com.dockbank.bankaccount.common.exception.UnprocessableEntityException;
 import br.com.dockbank.bankaccount.domain.entity.AccountBank;
 import br.com.dockbank.bankaccount.domain.entity.CustomerBank;
 import br.com.dockbank.bankaccount.domain.entity.TransactionBank;
@@ -43,7 +49,7 @@ class TransactionServiceImplTest {
     void testDepositWithSuccess() {
         TransactionRequest request = getTransactionRequest(1L);
         CustomerBank customerBank = CustomerMother.getCustomerBank();
-        Optional<AccountBank> accountBankOptional = Optional.of(AccountMother.getAccountBank(customerBank));
+        Optional<AccountBank> accountBankOptional = Optional.of(getAccountBank(customerBank));
         TransactionBank transactionBank = getTransactionBank(accountBankOptional.get());
         TransactionResponse transactionResponse = getTransactionResponse(transactionBank);
 
@@ -59,10 +65,12 @@ class TransactionServiceImplTest {
     }
 
     @Test
-    void testDepositWith() {
+    void testDepositWithInvalidAccount() {
         TransactionRequest request = getTransactionRequest(1L);
         CustomerBank customerBank = CustomerMother.getCustomerBank();
-        Optional<AccountBank> accountBankOptional = Optional.of(AccountMother.getAccountBank(customerBank));
+        AccountBank accountBank = getAccountBank(customerBank);
+        accountBank.setAccountActive("D");
+        Optional<AccountBank> accountBankOptional = Optional.of(accountBank);
         TransactionBank transactionBank = getTransactionBank(accountBankOptional.get());
         TransactionResponse transactionResponse = getTransactionResponse(transactionBank);
 
@@ -70,10 +78,12 @@ class TransactionServiceImplTest {
         when(repository.save(any())).thenReturn(transactionBank);
         when(mapper.toResponse(transactionBank)).thenReturn(transactionResponse);
 
-        TransactionResponse result = fixture.deposit(request);
+        assertThatThrownBy(() -> fixture.deposit(request))
+            .isInstanceOf(UnprocessableEntityException.class)
+            .hasMessage("Account invalid");
 
-        assertThat(result).isNotNull();
-        assertThat(result.getTransactionValue()).isBetween(valueOf(20300.54D), valueOf(20300.56D));
-        assertThat(result.getTransactionCreated()).isNotNull();
+        verify(accountRepository).findById(1L);
+        verify(mapper, never()).toResponse(any(TransactionBank.class));
+        verify(repository, never()).save(any(TransactionBank.class));
     }
 }
