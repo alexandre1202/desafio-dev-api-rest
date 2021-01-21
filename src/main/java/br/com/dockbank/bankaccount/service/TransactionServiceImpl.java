@@ -87,7 +87,7 @@ public class TransactionServiceImpl implements TransactionService {
         }
 
         if (request.getTransactionValue().compareTo(accountBank.getBalance()) > 0) {
-            throw new UnprocessableEntityException("There is no funds enough");
+            throw new UnprocessableEntityException("Insufficient balance");
         }
     }
 
