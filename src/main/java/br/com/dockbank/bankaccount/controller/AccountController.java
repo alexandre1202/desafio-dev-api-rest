@@ -26,8 +26,6 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @Api(tags = "Account balance")
 @RequestMapping(value = "v1")
-//    consumes = MediaType.APPLICATION_JSON_VALUE,
-//    produces = MediaType.APPLICATION_JSON_VALUE)
 public class AccountController {
 
     private final String ACCOUNT = "/account";

@@ -82,7 +82,7 @@ public class TransactionServiceImpl implements TransactionService {
         Double totalTransactionValuePerDay = transactionBankList.stream()
             .map(t -> t.getTransactionValue().doubleValue()).reduce(Double::sum).orElse(0D);
 
-        if ((request.getTransactionValue().add(new BigDecimal(totalTransactionValuePerDay))).compareTo(accountBank.getWithdrawLimitPerDay()) > 0) {
+        if ((request.getTransactionValue().add(BigDecimal.valueOf(totalTransactionValuePerDay))).compareTo(accountBank.getWithdrawLimitPerDay()) > 0) {
             throw new UnprocessableEntityException("Withdraw limit per day has exceeded");
         }
 

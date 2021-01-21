@@ -1,7 +1,6 @@
 package br.com.dockbank.bankaccount.domain.entity;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;

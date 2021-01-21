@@ -14,6 +14,16 @@ public class TransactionRequest {
     @ApiModelProperty(value = "Transaction value", required = true)
     private BigDecimal transactionValue;
 
+    public TransactionRequest(@NotNull Long accountId) {
+        this.accountId = accountId;
+    }
+
+    public TransactionRequest(@NotNull Long accountId,
+        BigDecimal transactionValue) {
+        this.accountId = accountId;
+        this.transactionValue = transactionValue;
+    }
+
     public Long getAccountId() {
         return accountId;
     }
