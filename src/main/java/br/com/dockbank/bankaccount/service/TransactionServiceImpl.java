@@ -75,7 +75,7 @@ public class TransactionServiceImpl implements TransactionService {
 
     private void withdrawValidation(TransactionRequest request, AccountBank accountBank) {
         List<TransactionBank> transactionBankList = repository
-            .findTransactionBanksByAccountBank_AccountIdAndAccountBank_AccountActiveAndTransactionCreatedGreaterThanEqual(
+            .findTransactionBanksByAccountBank_AccountIdAndAccountBank_AccountActiveAndTransactionCreatedEquals(
                 accountBank.getAccountId(),
                 "A",
                 LocalDate.now());

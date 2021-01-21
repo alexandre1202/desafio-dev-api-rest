@@ -61,6 +61,24 @@ class AccountRepositoryTest {
                 accountBank.getAccountActive());
         assertThat(result).isNotNull();
         assertThat(result.getAccountId()).isEqualTo(accountBank.getAccountId());
+    }
 
+    @Test
+    void testFindAccountBankByAccountIdAndAccountDeactive() {
+        CustomerBank customerBank = getCustomerBank();
+        customerBank = em.persist(customerBank);
+        em.flush();
+        em.clear();
+
+        AccountBank accountBank = getAccountBank(customerBank);
+        accountBank.setAccountActive("D");
+        accountBank = em.persist(accountBank);
+        em.flush();
+        em.clear();
+
+        AccountBank result = repository
+            .findAccountBankByAccountIdAndAccountActive(accountBank.getAccountId(),
+                accountBank.getAccountActive());
+        assertThat(result).isNotNull();
     }
 }

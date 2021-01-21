@@ -11,5 +11,6 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface TransactionRepository extends JpaSpecificationExecutor<JpaRepository>, JpaRepository<TransactionBank, Long> {
 //    List<TransactionBank> findTransactionBanksByAccountBank_AccountIdAndAccountBank_AccountActiveAndTransactionCreatedGreaterThanEqual(Long accountId, String status, LocalDate localDate);
-    List<TransactionBank> findTransactionBanksByAccountBank_AccountIdAndAccountBank_AccountActiveAndTransactionCreatedGreaterThanEqual(Long accountId, String status, LocalDate localDate);
+List<TransactionBank> findTransactionBanksByAccountBank_AccountIdAndAccountBank_AccountActiveAndTransactionCreatedEquals(Long accountId, String status, LocalDate localDate);
+
 }
