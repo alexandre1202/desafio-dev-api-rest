@@ -50,7 +50,6 @@ class TransactionRepositoryTest {
         assertThat(result.getTransactionValue()).isEqualTo(new BigDecimal(20300.55));
     }
 
-    //findTransactionBanksByAccountBank_AccountIdAndAccountBank_AccountActiveAndTransactionCreatedGreaterThanEqual
     @Test
     void testFindTransactionBanksByAccountBank_AccountIdAndAccountBank_AccountActiveAndTransactionCreatedEquals() {
         CustomerBank customerBank = getCustomerBank();
@@ -75,5 +74,44 @@ class TransactionRepositoryTest {
             .map(t -> t.getTransactionValue().doubleValue()).reduce(Double::sum).orElse(0D);
 
         assertThat(result).isEqualTo(20300.55D);
+    }
+
+    @Test
+    void testFindTransactionBanksByAccountBank_AccountIdAndAccountBank_AccountActiveAndTransactionCreatedEqualsWithManyTransactions() {
+        CustomerBank customerBank = getCustomerBank();
+        customerBank = em.persist(customerBank);
+        em.flush();
+        em.clear();
+
+        AccountBank accountBank = AccountMother.getAccountBank(customerBank);
+        accountBank = em.persist(accountBank);
+        em.flush();
+        em.clear();
+
+        TransactionBank transactionBank = getTransactionBank(accountBank);
+        transactionBank = em.persist(transactionBank);
+        em.flush();
+        em.clear();
+
+        transactionBank = getTransactionBank(accountBank);
+        transactionBank.setTransactionValue(new BigDecimal(1200));
+        transactionBank = em.persist(transactionBank);
+        em.flush();
+        em.clear();
+
+        transactionBank = getTransactionBank(accountBank);
+        transactionBank.setTransactionCreated(LocalDate.now().minusDays(1));
+        transactionBank.setTransactionValue(new BigDecimal(2500));
+        transactionBank = em.persist(transactionBank);
+        em.flush();
+        em.clear();
+
+        Double result = repository
+            .findTransactionBanksByAccountBank_AccountIdAndAccountBank_AccountActiveAndTransactionCreatedEquals(
+                accountBank.getAccountId(), "A", LocalDate.now())
+            .stream()
+            .map(t -> t.getTransactionValue().doubleValue()).reduce(Double::sum).orElse(0D);
+
+        assertThat(result).isEqualTo(21500.55D);
     }
 }
