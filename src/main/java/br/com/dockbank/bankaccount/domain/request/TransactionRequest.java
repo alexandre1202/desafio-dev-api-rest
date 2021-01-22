@@ -7,18 +7,16 @@ import javax.validation.constraints.NotNull;
 
 @ApiModel(description = "Transaction Request")
 public class TransactionRequest {
-    @NotNull
+
     @ApiModelProperty(value = "Account Id", required = true)
     private Long accountId;
 
     @ApiModelProperty(value = "Transaction value", required = true)
     private BigDecimal transactionValue;
 
-    public TransactionRequest(@NotNull Long accountId) {
-        this.accountId = accountId;
-    }
+    public TransactionRequest() {}
 
-    public TransactionRequest(@NotNull Long accountId,
+    public TransactionRequest(Long accountId,
         BigDecimal transactionValue) {
         this.accountId = accountId;
         this.transactionValue = transactionValue;
