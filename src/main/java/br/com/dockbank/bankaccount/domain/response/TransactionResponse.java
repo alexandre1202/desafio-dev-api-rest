@@ -20,6 +20,9 @@ public class TransactionResponse {
     @ApiModelProperty(value = "Transaction date created", name = "transactionCreated")
     private LocalDate transactionCreated;
 
+    public TransactionResponse() {
+    }
+
     public TransactionResponse(Long transactionId, Long accountId,
         BigDecimal transactionValue, LocalDate transactionCreated) {
         this.transactionId = transactionId;
