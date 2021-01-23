@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional("transactionManager")
-public class TransactionServiceImpl implements TransactionService {
+public class TransactionServiceImpl {
 
     @Autowired
     private TransactionRepository repository;
@@ -29,7 +29,6 @@ public class TransactionServiceImpl implements TransactionService {
     @Autowired
     private TransactionMapper mapper;
 
-    @Override
     public TransactionResponse deposit(TransactionRequest request) {
         AccountBank accountBank = getAccount(request);
         depositValidation(request);
@@ -60,7 +59,6 @@ public class TransactionServiceImpl implements TransactionService {
         }
     }
 
-    @Override
     public TransactionResponse withdraw(TransactionRequest request) {
         AccountBank accountBank = getAccount(request);
         withdrawValidation(request, accountBank);

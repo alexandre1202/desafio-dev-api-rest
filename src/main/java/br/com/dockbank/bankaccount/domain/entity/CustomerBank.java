@@ -88,11 +88,6 @@ public class CustomerBank {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(customerId, customerName, customerCpf, customerBirth);
-    }
-
-    @Override
     public String toString() {
         return "CustomerBank{" +
             "customerId=" + customerId +

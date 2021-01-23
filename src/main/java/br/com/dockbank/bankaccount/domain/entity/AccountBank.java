@@ -137,13 +137,6 @@ public class AccountBank {
     }
 
     @Override
-    public int hashCode() {
-        return Objects
-            .hash(accountId, customerBank, balance, withdrawLimitPerDay, accountActive, accountType,
-                accountCreated);
-    }
-
-    @Override
     public String toString() {
         return "AccountBank{" +
             "accountId=" + accountId +

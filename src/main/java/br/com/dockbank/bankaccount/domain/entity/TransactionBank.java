@@ -95,11 +95,6 @@ public class TransactionBank {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(transactionId, accountBank, transactionValue, transactionCreated);
-    }
-
-    @Override
     public String toString() {
         return "TransactionBank{" +
             "transactionId=" + transactionId +

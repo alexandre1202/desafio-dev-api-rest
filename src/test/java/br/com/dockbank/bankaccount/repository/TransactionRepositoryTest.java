@@ -1,19 +1,15 @@
 package br.com.dockbank.bankaccount.repository;
 
 import static br.com.dockbank.bankaccount.mother.CustomerMother.getCustomerBank;
-import static br.com.dockbank.bankaccount.mother.TransactionMother.*;
-import static org.assertj.core.api.Assertions.*;
+import static br.com.dockbank.bankaccount.mother.TransactionMother.getTransactionBank;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import br.com.dockbank.bankaccount.domain.entity.AccountBank;
 import br.com.dockbank.bankaccount.domain.entity.CustomerBank;
 import br.com.dockbank.bankaccount.domain.entity.TransactionBank;
 import br.com.dockbank.bankaccount.mother.AccountMother;
-import br.com.dockbank.bankaccount.mother.TransactionMother;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;

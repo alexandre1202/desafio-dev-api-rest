@@ -3,7 +3,7 @@ package br.com.dockbank.bankaccount.controller;
 import br.com.dockbank.bankaccount.domain.request.AccountActivationRequest;
 import br.com.dockbank.bankaccount.domain.request.AccountRequest;
 import br.com.dockbank.bankaccount.domain.response.AccountResponse;
-import br.com.dockbank.bankaccount.service.AccountService;
+import br.com.dockbank.bankaccount.service.AccountServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -33,15 +33,15 @@ public class AccountController {
     private final String ACCOUNT_ACTIVATION = ACCOUNT + "/{accountId}/activation";
 
     @Autowired
-    private AccountService service;
+    private AccountServiceImpl service;
 
     @GetMapping(path = ACCOUNT_BALANCE)
     @ApiOperation(value = "Account information")
     @ApiResponse(code = 200, message = "Success")
     public ResponseEntity<AccountResponse> getAccountBalance(
-        @PathVariable Long accountId) {
+        final @PathVariable Long accountId) {
 
-        AccountResponse response = service.getAccountBalance(accountId);
+        final AccountResponse response = service.getAccountBalance(accountId);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
@@ -51,10 +51,10 @@ public class AccountController {
     @ApiOperation(value = "Blocking Account")
     @ApiResponse(code = 200, message = "Updated")
     public ResponseEntity<AccountResponse> blockAccount(
-        @PathVariable Long accountId,
-        @RequestBody @Valid AccountActivationRequest status) {
+        final @PathVariable Long accountId,
+        final @RequestBody @Valid AccountActivationRequest status) {
 
-        AccountResponse response = service.activationAccount(accountId, status);
+        final AccountResponse response = service.activationAccount(accountId, status);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 

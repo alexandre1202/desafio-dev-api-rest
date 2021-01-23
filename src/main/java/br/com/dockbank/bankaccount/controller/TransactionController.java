@@ -4,7 +4,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import br.com.dockbank.bankaccount.domain.request.TransactionRequest;
 import br.com.dockbank.bankaccount.domain.response.TransactionResponse;
-import br.com.dockbank.bankaccount.service.TransactionService;
+import br.com.dockbank.bankaccount.service.TransactionServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -24,11 +24,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "v1/")
 public class TransactionController {
 
-    private final String DEPOSIT = "deposit";
-    private final String WITHDRAW = "withdraw";
+    private final String DEPOSIT = "deposits";
+    private final String WITHDRAW = "withdraws";
 
     @Autowired
-    private TransactionService service;
+    private TransactionServiceImpl service;
 
     @PostMapping(value = DEPOSIT,
         produces = APPLICATION_JSON_VALUE,
@@ -36,9 +36,9 @@ public class TransactionController {
     @ApiOperation(value = "Create a new Transaction")
     @ApiResponse(code = 201, message = "Success")
     public ResponseEntity<TransactionResponse> deposit(
-        @RequestBody TransactionRequest request) {
+        final @RequestBody TransactionRequest request) {
 
-        TransactionResponse response = service.deposit(request);
+        final TransactionResponse response = service.deposit(request);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
@@ -48,9 +48,9 @@ public class TransactionController {
     @ApiOperation(value = "Create a new Transaction")
     @ApiResponse(code = 201, message = "Success")
     public ResponseEntity<TransactionResponse> withdraw(
-        @RequestBody TransactionRequest request) {
+        final @RequestBody TransactionRequest request) {
 
-        TransactionResponse response = service.withdraw(request);
+        final TransactionResponse response = service.withdraw(request);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 }

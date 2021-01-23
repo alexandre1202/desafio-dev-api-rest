@@ -18,7 +18,7 @@ import br.com.dockbank.bankaccount.domain.entity.AccountBank;
 import br.com.dockbank.bankaccount.domain.entity.TransactionBank;
 import br.com.dockbank.bankaccount.domain.request.TransactionRequest;
 import br.com.dockbank.bankaccount.domain.response.TransactionResponse;
-import br.com.dockbank.bankaccount.service.TransactionService;
+import br.com.dockbank.bankaccount.service.TransactionServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -31,14 +31,14 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 class TransactionControllerTest {
 
-    private final String DEPOSIT = "/v1/deposit";
-    private final String WITHDRAW = "/v1/withdraw";
+    private final String DEPOSIT = "/v1/deposits";
+    private final String WITHDRAW = "/v1/withdraws";
 
     @InjectMocks
     private TransactionController fixture;
 
     @Mock
-    private TransactionService transactionService;
+    private TransactionServiceImpl transactionService;
 
     @Spy
     @Autowired

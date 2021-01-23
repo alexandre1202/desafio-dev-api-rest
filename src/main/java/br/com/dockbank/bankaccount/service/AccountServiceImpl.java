@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional("transactionManager")
-public class AccountServiceImpl implements AccountService {
+public class AccountServiceImpl {
 
     @Autowired
     private AccountMapper mapper;
@@ -27,12 +27,10 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     private AccountRepository repository;
 
-    @Override
     public AccountResponse getAccountBalance(Long accountId) {
         return mapper.toResponse(repository.findAccountBankByAccountIdAndAccountActive(accountId, "A"));
     }
 
-    @Override
     public AccountResponse createAccount(AccountRequest request) {
         CustomerBank customerBank = customerRepository
             .findById(request.getCustomerId())
@@ -45,7 +43,6 @@ public class AccountServiceImpl implements AccountService {
         return mapper.toResponse(repository.save(accountBank));
     }
 
-    @Override
     public AccountResponse activationAccount(Long accountId, AccountActivationRequest request) {
         AccountBank accountBank = repository
             .findById(accountId)
