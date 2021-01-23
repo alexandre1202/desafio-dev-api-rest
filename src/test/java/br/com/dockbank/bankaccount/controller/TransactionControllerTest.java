@@ -6,7 +6,6 @@ import static br.com.dockbank.bankaccount.mother.TransactionMother.getTransactio
 import static br.com.dockbank.bankaccount.mother.TransactionMother.getTransactionRequest;
 import static br.com.dockbank.bankaccount.mother.TransactionMother.getTransactionResponse;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -20,9 +19,7 @@ import br.com.dockbank.bankaccount.domain.entity.TransactionBank;
 import br.com.dockbank.bankaccount.domain.request.TransactionRequest;
 import br.com.dockbank.bankaccount.domain.response.TransactionResponse;
 import br.com.dockbank.bankaccount.service.TransactionService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
