@@ -11,10 +11,11 @@ Springboot REST Full Web Service Application Code Challenge with the following f
 * [JUnit](https://junit.org/junit5/)
 * [AssertJ](https://assertj.github.io/doc/)
 * [Mockito](https://site.mockito.org)
+* [SpringTest](https://docs.spring.io/spring-boot/docs/1.5.2.RELEASE/reference/html/boot-features-testing.html)
 * [Swagger](https://swagger.io)
 * [MapStruct](https://mapstruct.org)
 * [Javax Bean Validation](https://docs.oracle.com/javaee/7/tutorial/bean-validation001.htm)
-* [H2 Database](https://www.h2database.com/html/main.html)*
+* [H2 Database](https://www.h2database.com/html/main.html)
 
 ## Prerequisites
 Before you begin, ensure you have met the following requirements:
