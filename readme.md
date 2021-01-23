@@ -49,6 +49,9 @@ Swagger documentation and database are available when this application is runnin
 insert into customer (customer_id, customer_birth, customer_cpf, customer_name) values (1, PARSEDATETIME(sysdate, 'yyyy-MM-dd'), '11111111111', 'Nome do cliente');
 ```
 
+## Postman
+![Collections](./src/main/resources/postmancollections/DockBankCodeChallenge.postman_collection.json)
+
 ## Contact
 
 If you want to contact me you can reach me at <alexandre1202@gmail.com>.
