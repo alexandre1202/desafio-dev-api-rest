@@ -50,7 +50,7 @@ insert into customer (customer_id, customer_birth, customer_cpf, customer_name) 
 ```
 
 ## Postman
-![Collections](./src/main/resources/postmancollections/DockBankCodeChallenge.postman_collection.json)
+* [Collections](./src/main/resources/postmancollections/DockBankCodeChallenge.postman_collection.json)
 
 ## Contact
 
