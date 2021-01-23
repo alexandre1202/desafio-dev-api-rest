@@ -40,7 +40,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"accountId\" : 1,\n    \"transactionValue\" : 10.02\n}",
+					"raw": "{\n    \"accountId\" : 2,\n    \"transactionValue\" : 10.02\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -48,14 +48,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}:{{port}}/v1/deposit",
+					"raw": "{{host}}:{{port}}/v1/deposits",
 					"host": [
 						"{{host}}"
 					],
 					"port": "{{port}}",
 					"path": [
 						"v1",
-						"deposit"
+						"deposits"
 					]
 				}
 			},
@@ -68,7 +68,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"accountId\" : 1,\n    \"transactionValue\" : 10.02\n}",
+					"raw": "{\n    \"accountId\" : 2,\n    \"transactionValue\" : 10.02\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -76,14 +76,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}:{{port}}/v1/withdraw",
+					"raw": "{{host}}:{{port}}/v1/withdraws",
 					"host": [
 						"{{host}}"
 					],
 					"port": "{{port}}",
 					"path": [
 						"v1",
-						"withdraw"
+						"withdraws"
 					]
 				}
 			},
@@ -137,7 +137,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}:{{port}}/v1/account/1",
+					"raw": "{{host}}:{{port}}/v1/account/2",
 					"host": [
 						"{{host}}"
 					],
@@ -145,7 +145,7 @@
 					"path": [
 						"v1",
 						"account",
-						"1"
+						"2"
 					]
 				}
 			},
