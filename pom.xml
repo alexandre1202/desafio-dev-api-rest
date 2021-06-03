@@ -11,7 +11,7 @@
 	<groupId>br.com.dockbank.bankaccount</groupId>
 	<artifactId>desafio-dev-api-rest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>bank-account</name>
 	<description>Dock bank code challenge Spring Application</description>
 
@@ -117,5 +117,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>bank-account-spring-boot</finalName>
 	</build>
 </project>
