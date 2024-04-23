@@ -29,16 +29,14 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 class TransactionServiceImplTest {
-
-    @InjectMocks
-    private TransactionServiceImpl fixture;
-
     @Mock
     private TransactionRepository repository;
 
@@ -47,6 +45,9 @@ class TransactionServiceImplTest {
 
     @Mock
     private TransactionMapper mapper;
+
+    @InjectMocks
+    private TransactionServiceImpl fixture;
 
     @Test
     void testDepositWithSuccess() {
@@ -96,12 +97,8 @@ class TransactionServiceImplTest {
         AccountBank accountBank = getAccountBank(customerBank);
         accountBank.setAccountActive("D");
         Optional<AccountBank> accountBankOptional = Optional.of(accountBank);
-        TransactionBank transactionBank = getTransactionBank(accountBankOptional.get());
-        TransactionResponse transactionResponse = getTransactionResponse(transactionBank);
 
         when(accountRepository.findById(1L)).thenReturn(accountBankOptional);
-        when(repository.save(any())).thenReturn(transactionBank);
-        when(mapper.toResponse(transactionBank)).thenReturn(transactionResponse);
 
         assertThatThrownBy(() -> fixture.deposit(request))
             .isInstanceOf(UnprocessableEntityException.class)

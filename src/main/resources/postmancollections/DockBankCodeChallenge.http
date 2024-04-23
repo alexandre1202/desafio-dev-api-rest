@@ -1,0 +1,47 @@
+# DockBankCodeChallenge
+
+###
+# @name POST Account
+POST localhost:8085/v1/account
+Content-Type: application/json
+
+{
+  "customerId": 1,
+  "balance": 210.30,
+  "withdrawLimitPerDay": 1000.00,
+  "accountType": 1,
+  "accountActive": "A"
+}
+
+###
+# @name POST Deposit
+POST localhost:8085/v1/deposits
+Content-Type: application/json
+
+{
+  "accountId": 2,
+  "transactionValue": 10.02
+}
+
+###
+# @name POST Withdraw
+POST localhost:8085/v1/withdraws
+Content-Type: application/json
+
+{
+  "accountId": 2,
+  "transactionValue": 10.02
+}
+
+###
+# @name PUT Block Account
+PUT localhost:8085/v1/account/1/activation
+Content-Type: application/json
+
+{
+  "status": "A"
+}
+
+###
+# @name GET Account Id
+GET {{host}}:{{port}}/v1/account/2

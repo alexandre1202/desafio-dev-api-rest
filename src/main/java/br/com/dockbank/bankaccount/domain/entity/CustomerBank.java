@@ -2,11 +2,15 @@ package br.com.dockbank.bankaccount.domain.entity;
 
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import org.hibernate.annotations.DynamicInsert;
@@ -30,6 +34,22 @@ public class CustomerBank {
 
     @Column
     private LocalDate customerBirth;
+
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            mappedBy = "customerBank",
+            fetch = FetchType.LAZY,
+            orphanRemoval = true
+    )
+    private Set<AccountBank> accountBanks;
+
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            mappedBy = "customerBank",
+            fetch = FetchType.LAZY,
+            orphanRemoval = true
+    )
+    private Set<Address> addresses;
 
     public CustomerBank() {}
 
@@ -70,6 +90,22 @@ public class CustomerBank {
 
     public void setCustomerBirth(LocalDate customerBirth) {
         this.customerBirth = customerBirth;
+    }
+
+    public Set<AccountBank> getAccountBanks() {
+        return accountBanks;
+    }
+
+    public void setAccountBanks(Set<AccountBank> accountBanks) {
+        this.accountBanks = accountBanks;
+    }
+
+    public Set<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(Set<Address> addresses) {
+        this.addresses = addresses;
     }
 
     @Override
